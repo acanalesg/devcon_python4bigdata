@@ -13,7 +13,7 @@ class ReduceLkp:
     def __init__(self):    # initialize reducer (cache hdi)
         self.loadHdi()
 
-    def __call__(self, key, values):    # function invoke for each record in disasters
+    def __call__(self, key, values):    # function invoke for each key in reduce
         country_hdi = self.hdi.get(key)
         if country_hdi:   # if found
             for v in values:

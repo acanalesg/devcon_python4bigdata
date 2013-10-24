@@ -21,7 +21,7 @@ class ReduceLkp:
         self.loadHdi()
         self.loadContinents()
 
-    def __call__(self, key, values):    # function invoke for each record in disasters
+    def __call__(self, key, values):    # function invoke for each key as reducer
         country_hdi = self.hdi.get(key[0])
         continent = self.continents.get(key[0])
         killed = 0
