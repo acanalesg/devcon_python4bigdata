@@ -57,3 +57,19 @@ dumbo start reducelkp_join.py -input ../dat/disasters/disasters.tsv -file ../dat
 This way, we are reducing the number of queries we do to the lookup, but we need to pass both datasets through the shuffle and reduce phases, usually, we are not just joining, but also doing any other type of transformations that requires to shuffle and reduce, if that is the case, and one dataset is small, it might be usefull to follow this strategy.
 
 
+So, let's play with the data, we can see the impact of each type of disasters and see how the hdi for the country where the disaster happen relates to the impact, we can aggregate in hadoop (disasters_and_hdi.py), 
+```
+dumbo start disasters_and_hdi.py -input ../dat/disasters/disasters.tsv -file ../dat/hdi/hdi.tsv -file ../dat/continents/country_continent.tsv -output output6 -overwrite yes -hadoop /opt/hadoop
+```
+
+and then, we can import the outcome to explore and analyse. Quick plot of the result (user R!)
+```
+disasters <- read.csv('/Users/acg/Repositories/devcon_python4bigdata/join/output6/part-00000', 
+                        header=FALSE, 
+                        sep=',',
+                        col.names=c('country', 'type', 'continent', 'hdi_rank', 'hdi', 'killed', 'cost', 'affected', '_'))
+
+
+ggplot(disasters, aes(x=hdi, y=killed, colour=continent)) + geom_point() + scale_y_continuous(limits=c(0,500))  +  facet_wrap(~ type)
+```
+
