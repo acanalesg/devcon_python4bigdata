@@ -1,17 +1,15 @@
-
-
-from dumbo import identityreducer
 import operator
+
 
 def mapper(key, value):
     if key == 0:   # ignore header lines
-        return   
+        return
 
     toks = value.split('\t')
 
     if len(toks) == 12:     # disaster
         # country, ('Disaster', start, type, subtype, killed, cost, affected)
-        yield toks[2], ('Disaster',) +  operator.itemgetter(0, 4, 5,  7, 8, 9)(toks)
+        yield toks[2], ('Disaster',) + operator.itemgetter(0, 4, 5,  7, 8, 9)(toks)
 
     elif len(toks) == 14:   # hdi
         # country, ('hdi', rank, hdi_1980, hdi_1990, hdi_2000, hdi_2010)

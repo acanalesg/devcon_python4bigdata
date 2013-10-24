@@ -1,6 +1,5 @@
-from dumbo.lib import JoinReducer, MultiMapper
-from dumbo.decor import primary, secondary
 import operator
+
 
 def parse_disasters(key, value):
     toks = value.split('\t')
@@ -18,10 +17,10 @@ class ReduceLkp:
         country_hdi = self.hdi.get(key)
         if country_hdi:   # if found
             for v in values:
-                # country, [rank_hdi, hdi_1980, hdi_1990, hdi_2000, hdi_2010, 
+                # country, [rank_hdi, hdi_1980, hdi_1990, hdi_2000, hdi_2010,
                 #           dis_start, type, subtype, killed, cost, affected]
                 yield key, country_hdi + v
-         
+
     def loadHdi(self):
         # Read HDI file and store in dict
         file = open('hdi.tsv', 'r')
@@ -33,7 +32,7 @@ class ReduceLkp:
 
 
 def runner(job):
-    opts = [("inputformat", "text"), ("outputformat", "text") ]
+    opts = [("inputformat", "text"), ("outputformat", "text")]
     o1 = job.additer(parse_disasters, ReduceLkp, opts=opts)  # No reducer needed
 
 if __name__ == "__main__":

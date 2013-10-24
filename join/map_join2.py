@@ -1,6 +1,5 @@
-from dumbo.lib import JoinReducer, MultiMapper
-from dumbo.decor import primary, secondary
 import operator
+
 
 class MapJoin:
     """Mapper to parse disasters and look-up country index"""
@@ -15,10 +14,10 @@ class MapJoin:
 
         country_hdi = self.current_search[1]
         if country_hdi:   # if found
-            # country, [rank_hdi, hdi_1980, hdi_1990, hdi_2000, hdi_2010, 
+            # country, [rank_hdi, hdi_1980, hdi_1990, hdi_2000, hdi_2010,
             #           dis_start, type, subtype, killed, cost, affected]
             yield country, country_hdi + operator.itemgetter(0, 4, 5,  7, 8, 9)(toks)
-         
+
     def loadHdi(self):
         # Read HDI file and store in dict
         file = open('hdi.tsv', 'r')
@@ -27,11 +26,11 @@ class MapJoin:
             tokens = l.strip().split('\t')
             # { country : (rank, hdi_1980, hdi_1990, hdi_2000, hdi_2010) }
             self.hdi[tokens[1]] = operator.itemgetter(0, 2, 3, 4, 10)(tokens)
-        self.current_search = ("---", None)    #  (country, hdi_data)
+        self.current_search = ("---", None)    # (country, hdi_data)
 
 
 def runner(job):
-    opts = [("inputformat", "text"), ("outputformat", "text"), ("numreducetasks", "0") ]
+    opts = [("inputformat", "text"), ("outputformat", "text"), ("numreducetasks", "0")]
     o1 = job.additer(MapJoin, opts=opts)  # No reducer needed
 
 if __name__ == "__main__":

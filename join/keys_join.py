@@ -2,11 +2,12 @@ from dumbo.lib import JoinReducer, MultiMapper
 from dumbo.decor import primary, secondary
 import operator
 
+
 def parse_disasters(key, value):
     toks = value.split('\t')
 
     # country, (start, type, subtype, killed, cost, affected)
-    yield toks[2], operator.itemgetter(0, 4, 5,  7, 8, 9)(toks) 
+    yield toks[2], operator.itemgetter(0, 4, 5,  7, 8, 9)(toks)
 
 
 def parse_hdi(key, value):
@@ -16,7 +17,7 @@ def parse_hdi(key, value):
     yield toks[1], operator.itemgetter(0, 2, 3, 4, 10)(toks)
 
 
-class Reducer(JoinReducer):
+class Reducer(JoinReducer):     # Reducer is now a class
     def primary(self, key, values):
         self.hdi_data = values.next()
 
