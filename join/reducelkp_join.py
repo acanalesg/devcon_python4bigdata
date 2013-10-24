@@ -33,7 +33,7 @@ class ReduceLkp:
 
 def runner(job):
     opts = [("inputformat", "text"), ("outputformat", "text")]
-    o1 = job.additer(parse_disasters, ReduceLkp, opts=opts)  # No reducer needed
+    o1 = job.additer(parse_disasters, ReduceLkp, opts=opts)
 
 if __name__ == "__main__":
     from dumbo import main
