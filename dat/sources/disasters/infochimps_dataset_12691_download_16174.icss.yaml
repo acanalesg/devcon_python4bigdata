@@ -1,0 +1,153 @@
+---
+infochimps_schema:
+  title: Infochimps Simple Schema (ICSS)
+  version: 0.1
+  generated_at: Tue Feb 09 22:50:26 +0000 2010
+  url: "http://infochimps.org/payloads/16174.yaml"
+  description: >-
+    This is an Infochimps Simple Schema (ICSS).
+
+    It describes data on Infochimps.org and is meant to be both human
+    and machine readable.
+
+    An ICSS file is distributed with every download on Infochimps and
+    is also available by request to the above URL.
+    
+    ICSS files bundled with downloads are generated at the time the
+    download was created so they can become out of date as changes are
+    made to the data.  If this ICSS came with data you downloaded then
+    it is possible that it is already out of date.  You can get the
+    most recent version at the URL above.
+
+dataset:
+  id: 12691
+  title: Disasters wordwide from 1900-2008
+  subtitle: A comprehensive listing of of over 17,000 disasters, natural and otherwise, from around the globe.
+  main_link: ~
+  url: "http://infochimps.org/datasets/disasters-wordwide-from-1900-2008"
+  created_at: "Mon Feb 01 04:31:33 UTC 2010"
+  updated_at: "Mon Feb 01 04:31:33 UTC 2010"  
+  tags: [ accidents,database,disaster,disease,drought,earthquake,epidemic,flood,global,natural disaster ]
+  categories: [ History ]
+  created_by:
+    id: 675  
+    username: Ganglion
+    name: Jacob Perkins
+    institution: ~
+    main_link: ~
+    url: "http://infochimps.org/users/ganglion"
+  description: >-
+    Description
+    
+       1. Description
+    
+    From original site's front page:
+    
+    Since 1988 the WHO Collaborating Centre for Research on the Epidemiology of Disasters (CRED) has been maintaining an Emergency Events Database EM-DAT. EM-DAT was created with the initial support of the WHO and the Belgian Government.
+      The main objective of the database is to serve the purposes of humanitarian action at national and international levels. It is an initiative aimed to rationalise decision making for disaster preparedness, as well as providing an objective base for vulnerability assessment and priority setting. For example, it allows on to decide whether floods in a given country are more significant in terms of its human impact than earthquakes or whether a country is more vulnerable than another for computing resources is.
+      EM-DAT contains essential core data on the occurrence and effects of over 16,000 mass disasters in the world from 1900 to present. The database is compiled from various sources, including UN agencies, non-governmental organisations, insurance companies, research institutes and press agencies.
+    
+    This is only public domain natural disaster database around (two other global sources are private: Sigma from Swiss Re and NatCat from Munich Re).
+    
+       1. Openness: OPEN
+       1. DB License/Copyright
+    
+    LICENSE:
+    
+    The EM-DAT database is protected by the law of 30 June 1994 on copyright and the law of 31 August 1998 on the legal protection of databases.
+    
+      EM-DAT was created in 1988 at the Université Catholique de Louvain by researchers at the Centre de Recherche sur l’Epidemiologie des Desastres – Centre for Research on the Epidemiology of Disasters (CRED). The database was set up with the support of the WHO and the Belgian government. Since 1999, CRED has received support from the Office of Foreign Disaster Assistance (OFDA) of the US Agency for International Development (USAID). The Université Catholique de Louvain holds the copyright for the database.
+    The EM-DAT database has been made available for unrestricted access free of charge by UCL so that anyone with a query can obtain information.
+    
+      The reproduction and communication of the information obtained using the EM-DAT is authorised by any means and in all forms, provided that the source is mentioned clearly as follows: 
+    
+    "EM-DAT: The OFDA/CRED International Disaster Database – www.emdat.be – Université Catholique de Louvain – Brussels – Belgium."
+  sources:
+    
+    - id: 12772
+      title: www.emdat.be
+      main_link: "http://www.emdat.be/"
+      url: "http://infochimps.org/sources/www-emdat-be"
+      description: >-
+        Source for dataset "EMDAT - The International Emergency Disasters Database" as listed by CKAN.
+    
+  data:
+    id: 16174
+    title: List of disasters by country (1900-2008)
+    number_of_records: ~
+    url: "http://infochimps.org/payloads/16174"
+    description: >-
+      Disaster Criteria:
+      
+      For a disaster to be entered into the database at least one of the following criteria must be fulfilled:
+      
+      • Ten (10) or more people reported killed.
+      • Hundred (100) or more people reported affected.
+      • Declaration of a state of emergency.
+      • Call for international assistance.
+      
+      
+      Disaster Classification:
+      
+      'EM-DAT distinguishes two generic categories for disasters (natural and technological),
+      the natural disaster category being divided into 5 sub-groups, which in turn cover 12
+      disaster types and more than 30 sub-types.
+      
+      Geophysical => Events originating from solid earth 	ie: Earthquake,Volcano,Mass Movement (dry)
+      
+      Meteorological => Events caused by short-lived/small to meso scale atmospheric processes
+                        (in the spectrum from minutes to days)  ie: Storm
+                        
+      Hydrological =>	Events caused by deviations in the normal water cycle and/or overflow of bodies
+                      of water caused by wind set-up 	ie: Flood,Mass Movement (wet)
+      
+      Climatological => Events caused by long-lived/meso to macro scale processes (in the spectrum from
+                        intra-seasonal to multi-decadal climate variability)
+                        ie: Extreme Temperature,Drought,Wildfire
+                        
+      Biological => Disaster caused by the exposure of living organisms to germs and toxic substances
+                    ie: Epidemic,Insect infestation,Animal Stampede
+      
+      
+      Fields:
+      
+      Start:          The date which the disaster began.
+      End:            The date which the disaster ended.
+      Country:        Country(ies) in which the disaster has occurred.
+      Location:       A sub-location classification if available.
+      Type:           The type of disaster according to pre-defined classification.
+      Sub_Type:       Further classification of the type of disaster.
+      Name:           The name of the disaster if available.
+      Killed:         Persons confirmed as dead and persons missing and presumed dead
+                      (official figures when available).
+      Affected:       Total of people injured, homeless, and affected. Where
+                      affected means people requiring immediate assistance during a period
+                      of emergency;it can also include displaced or evacuated people
+      Cost:           Several institutions have developed methodologies to quantify
+                      these losses in their specific domain. However, there is no standard
+                      procedure to determine a global figure for economic impact. Estimated
+                      damage are given (000’)
+      Id:             A unique identifier for the disaster.
+    fields:
+      
+      - id: 169202
+        title: End
+        unit: Date
+        datatype: Integer
+        description: >-
+          When disaster ended (ddmmyyyy)
+      
+      - id: 169201
+        title: Start
+        unit: Date
+        datatype: Integer
+        description: >-
+          When disaster began (ddmmyyyy)
+      
+    license:
+      id: 
+      title: ~
+      main_link: ~
+      url: ~            
+      description: >-
+        
