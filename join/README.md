@@ -42,6 +42,9 @@ If we know a little about the nature on the dataset and on how is it generate, i
 dumbo start map_join2.py -input ../dat/disasters/disasters.tsv -file ../dat/hdi/hdi.tsv -output output4 -overwrite yes -hadoop /opt/hadoop
 ```
 
+Notice that we are using "-file" for the small dataset (hdi) instead of "-input",  this puts the file in the distributed cache (it is broadcasting it)
+
+
 3. Reduce side cached-Join
 ==
 
