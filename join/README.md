@@ -42,7 +42,7 @@ If we know a little about the nature on the dataset and on how is it generate, i
 dumbo start map_join2.py -input ../dat/disasters/disasters.tsv -file ../dat/hdi/hdi.tsv -output output4 -overwrite yes -hadoop /opt/hadoop
 ```
 
-3. Reduce side Join
+3. Reduce side cached-Join
 ==
 
 A similar approach to 2 (caching one of the datasets) can be implemented on the reducer.
